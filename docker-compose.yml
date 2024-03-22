@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  nilmtk:
+    build: .
+    container_name: nilmtk-py311
+    image: nilmtk-py311
+    volumes:
+      - $PWD/notebooks:/workspace/notebooks
+      - $PWD/dataset:/workspace/dataset
+    environment:
+      - PASSWORD=nilm
+    ports:
+      - 8888:8888
+    platform: linux/x86_64
