@@ -24,5 +24,5 @@ COPY files/jupyter_lab_config.py /root/.jupyter/
 
 WORKDIR /workspace
 
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser", "--NotebookApp.token=''"]
 
