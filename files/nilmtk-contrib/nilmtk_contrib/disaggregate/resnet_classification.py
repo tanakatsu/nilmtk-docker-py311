@@ -277,7 +277,7 @@ class ResNet_classification(Disaggregator):
 
                 ##################
                 #PLOTTING
-                self.classification_output_plot(prediction_classification,appliance)
+                # self.classification_output_plot(prediction_classification,appliance)  # FIX
 
 
             results = pd.DataFrame(disggregation_dict, dtype='float32')
