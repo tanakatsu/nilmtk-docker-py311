@@ -5,14 +5,17 @@ RUN apt-get update && apt-get install -y \
     vim \
     p7zip-full \
     unzip \
+    libhdf5-dev \
+    libopenblas-dev \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean
 
+RUN pip install Cython
 RUN git clone https://github.com/nilmtk/nilmtk.git
 COPY files/nilmtk/setup.py nilmtk/setup.py
 RUN cd nilmtk && python setup.py develop
 RUN git clone https://github.com/nilmtk/nilm_metadata.git && cd nilm_metadata && python setup.py develop
-RUN pip install jupyterlab
+RUN pip install jupyterlab pkgconfig
 RUN git clone https://github.com/nilmtk/nilmtk-contrib.git
 COPY files/nilmtk-contrib/setup.py nilmtk-contrib/setup.py
 COPY files/nilmtk-contrib/nilmtk_contrib/disaggregate/* nilmtk-contrib/nilmtk_contrib/disaggregate/
